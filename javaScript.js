@@ -19,3 +19,15 @@ function createGrid(number)
 }
  
 createGrid(16);
+ 
+//Hover Effect
+function hover()
+{
+  let columns=document.getElementsByClassName("column");
+  for(let i=0;i<=columns.length;i++)
+  {
+    columns[i].addEventListener("mouseover",changeColor());
+  }
+}
+ 
+
