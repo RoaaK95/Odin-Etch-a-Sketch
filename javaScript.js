@@ -1,12 +1,21 @@
-const container=document.getElementById("container");
+const container=document.getElementById('container');
 
-function createGrid(numDiv)
+//Create Grid function
+function createGrid(number)
 {
-    for(let i=0;i<numDiv;i++)
+    for(let i=0;i<number;i++)
     {
-      const div=document.createElement("div");
-      container.appendChild(div);
+      let row=document.createElement('div');
+      row.classList.add('row');
+      container.appendChild(row);
+       for(j=0;j<number;j++)
+       {
+        let column=document.createElement('div');
+        column.classList.add('column');
+        row.appendChild(column);
+       }
+     
     }
 }
-
-createGrid(16*16);
+ 
+createGrid(16);
