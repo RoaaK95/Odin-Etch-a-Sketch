@@ -26,8 +26,13 @@ function hover()
   let columns=document.getElementsByClassName("column");
   for(let i=0;i<=columns.length;i++)
   {
-    columns[i].addEventListener("mouseover",changeColor());
+    columns[i].addEventListener("mouseover",(changeColor));
   }
 }
  
+function changeColor()
+{
+ this.style.backgroundColor="#000";
+}
 
+hover();
