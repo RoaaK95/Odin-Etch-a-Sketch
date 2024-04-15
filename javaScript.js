@@ -26,7 +26,8 @@ function hover()
   let columns=document.getElementsByClassName("column");
   for(let i=0;i<=columns.length;i++)
   {
-    columns[i].addEventListener("mouseover",(changeColor));
+    columns[i].addEventListener("mouseover",changeColor);
+    columns[i].addEventListener("mouseout",trailEffect);
   }
 }
  
@@ -34,5 +35,12 @@ function changeColor()
 {
  this.style.backgroundColor="#000";
 }
-
+ 
+function trailEffect()
+{ 
+    //  this.style.backgroundColor= `rgb(${i}, ${i}, ${i})`;
+    this.classList.add('animate');
+  
+}
+  
 hover();

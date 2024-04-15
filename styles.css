@@ -2,7 +2,6 @@
     box-sizing: border-box;
 }
 
- 
 .canvas{
     display: flex;
     align-items: center;
@@ -25,4 +24,14 @@
 .column{
     border: 1px solid rgb(0, 0, 0);
     flex:1;
+}
+ 
+.animate {
+    background: rgb(0, 0, 0);
+    animation: mymove 3s forwards;
+  }
+  
+@keyframes mymove{
+    from{background-color: black;}
+    to {background-color: white;}
 }
