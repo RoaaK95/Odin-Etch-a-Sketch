@@ -28,10 +28,10 @@
  
 .animate {
     background: rgb(0, 0, 0);
-    animation: mymove 3s forwards;
+    animation: mymove 3s linear none;
   }
   
 @keyframes mymove{
     from{background-color: black;}
-    to {background-color: white;}
+    to {background-color: #ffffff;}
 }

@@ -33,6 +33,7 @@ function hover()
  
 function changeColor()
 {
+  this.classList.remove('animate');
  this.style.backgroundColor="#000";
 }
  
@@ -40,7 +41,10 @@ function trailEffect()
 { 
     //  this.style.backgroundColor= `rgb(${i}, ${i}, ${i})`;
     this.classList.add('animate');
-  
+   if(this.style.backgroundColor="#fff")
+   {
+    this.style.backgroundColor="#fff";
+   }
 }
   
 hover();
