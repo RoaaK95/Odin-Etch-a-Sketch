@@ -1,6 +1,8 @@
 const container=document.getElementById('container');
 let gridButton=document.getElementById('gridSizeBtn');
 let defaultGridSize=16;
+const drawButton=document.getElementById('drawBtn');
+const clearButton= document.getElementById('clearBtn');
 //Create Grid function
 function createGrid(number)
 {
@@ -20,8 +22,14 @@ function createGrid(number)
 }
 createGrid(defaultGridSize);
 
+let isDrawing=false;
+//Buttons
 gridButton.addEventListener("click", getGridSize);
-
+drawButton.addEventListener("click",()=>{
+ isDrawing=true;
+}
+)
+clearButton.addEventListener("click",Clear);
 
 //Get Grid Size from user input
 function getGridSize()
@@ -57,21 +65,44 @@ function hover()
   {
     columns[i].addEventListener("mouseover",changeColor);
     columns[i].addEventListener("mouseout",trailEffect);
+    columns[i].addEventListener("click",Draw);
   }
 }
- 
+
 function changeColor()
-{
+{ 
+  if(!isDrawing)
   this.classList.remove('animate');
  this.style.backgroundColor="#000";
 }
  
 function trailEffect()
 { 
+  if(!isDrawing)
+  {
     this.classList.add('animate');
    if(this.style.backgroundColor="#fff")
    {
     this.style.backgroundColor="#fff";
    }
+  }
+   
+}
+function Draw()
+{
+  if(isDrawing)
+  {
+    this.style.backgroundColor="#000";
+  }
+  
+}
+function Clear()
+{
+  let columns=document.getElementsByClassName("column");
+  for(let i=0;i<=columns.length;i++)
+  {
+    columns[i].style.backgroundColor="#fff";
+  }
+
 }
 hover();
