@@ -1,5 +1,6 @@
 const container=document.getElementById('container');
-
+let gridButton=document.getElementById('gridSizeBtn');
+let defaultGridSize=16;
 //Create Grid function
 function createGrid(number)
 {
@@ -17,10 +18,38 @@ function createGrid(number)
      
     }
 }
+createGrid(defaultGridSize);
+
+gridButton.addEventListener("click", getGridSize);
+
+
+//Get Grid Size from user input
+function getGridSize()
+{
  
-createGrid(16);
+  let userInput= parseInt(prompt("Enter a number between 2 and 100"));
+  let gridSize=0;
+  if(userInput<2 || userInput > 100 ||isNaN(userInput))
+  {
+      alert("Invalid input");
+     gridSize=defaultGridSize;
+     userInput="";
+     container.innerHTML="";
+  }
+  else
+  {
+    gridSize=userInput;
+    userInput="";
+     container.innerHTML="";
+  }
+
+  createGrid(gridSize);
+  hover();
+}
+
  
-//Hover Effect
+
+
 function hover()
 {
   let columns=document.getElementsByClassName("column");
@@ -39,12 +68,10 @@ function changeColor()
  
 function trailEffect()
 { 
-    //  this.style.backgroundColor= `rgb(${i}, ${i}, ${i})`;
     this.classList.add('animate');
    if(this.style.backgroundColor="#fff")
    {
     this.style.backgroundColor="#fff";
    }
 }
-  
 hover();
