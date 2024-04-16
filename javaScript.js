@@ -58,7 +58,7 @@ function getGridSize()
 
  
 
-
+//Hovering 
 function hover()
 {
   let columns=document.getElementsByClassName("column");
@@ -69,12 +69,24 @@ function hover()
     columns[i].addEventListener("click",Draw);
   }
 }
+ 
+
+ 
+//Random color
+function randomColor()
+{
+  let randomColor=Math.floor(Math.random()*16777215).toString(16);
+  return "#" + randomColor;
+}
 
 function changeColor()
 { 
   if(!isDrawing)
-  this.classList.remove('animate');
- this.style.backgroundColor="#000";
+  {
+    this.classList.remove('animate');
+    this.style.backgroundColor=randomColor();
+  }
+  
 }
  
 function trailEffect()
@@ -89,14 +101,18 @@ function trailEffect()
   }
    
 }
+
+//Drawing
 function Draw()
 {
   if(isDrawing)
   {
-    this.style.backgroundColor="#000";
+    this.style.backgroundColor=randomColor();
   }
   
 }
+
+//Clear
 function Clear()
 {isDrawing=false;
   let columns=document.getElementsByClassName("column");
@@ -106,4 +122,5 @@ function Clear()
   }
 
 }
+
 hover();

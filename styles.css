@@ -30,7 +30,7 @@
  
 .animate {
     background: rgb(0, 0, 0);
-    animation: mymove 3s linear none;
+    animation: mymove 2s linear none;
   }
   
 @keyframes mymove{
