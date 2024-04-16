@@ -26,7 +26,7 @@ let isDrawing=false;
 //Buttons
 gridButton.addEventListener("click", getGridSize);
 drawButton.addEventListener("click",()=>{
- isDrawing=true;
+  isDrawing=true;
 }
 )
 clearButton.addEventListener("click",Clear);
@@ -51,6 +51,7 @@ function getGridSize()
      container.innerHTML="";
   }
 
+  isDrawing=false;
   createGrid(gridSize);
   hover();
 }
@@ -103,6 +104,6 @@ function Clear()
   {
     columns[i].style.backgroundColor="#fff";
   }
-  
+
 }
 hover();
