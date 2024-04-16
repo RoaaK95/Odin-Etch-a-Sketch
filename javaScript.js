@@ -97,12 +97,12 @@ function Draw()
   
 }
 function Clear()
-{
+{isDrawing=false;
   let columns=document.getElementsByClassName("column");
   for(let i=0;i<=columns.length;i++)
   {
     columns[i].style.backgroundColor="#fff";
   }
-
+  
 }
 hover();
