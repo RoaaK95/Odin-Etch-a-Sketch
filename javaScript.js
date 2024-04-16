@@ -66,7 +66,7 @@ function hover()
   {
     columns[i].addEventListener("mouseover",changeColor);
     columns[i].addEventListener("mouseout",trailEffect);
-    columns[i].addEventListener("click",Draw);
+    columns[i].addEventListener("mousedown",Draw);
   }
 }
  
