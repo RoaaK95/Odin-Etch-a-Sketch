@@ -1,8 +1,9 @@
 const container=document.getElementById('container');
-let gridButton=document.getElementById('gridSizeBtn');
 let defaultGridSize=16;
 const drawButton=document.getElementById('drawBtn');
 const clearButton= document.getElementById('clearBtn');
+const slider=document.getElementById("slider");
+const sliderValue=document.getElementById("sliderValue");
 //Create Grid function
 function createGrid(number)
 {
@@ -24,39 +25,28 @@ createGrid(defaultGridSize);
 
 let isDrawing=false;
 //Buttons
-gridButton.addEventListener("click", getGridSize);
 drawButton.addEventListener("click",()=>{
   isDrawing=true;
 }
 )
 clearButton.addEventListener("click",Clear);
 
-//Get Grid Size from user input
-function getGridSize()
-{
- 
-  let userInput= parseInt(prompt("Enter a number between 2 and 100"));
-  let gridSize=0;
-  if(userInput<2 || userInput > 100 ||isNaN(userInput))
-  {
-      alert("Invalid input");
-     gridSize=defaultGridSize;
-     userInput="";
-     container.innerHTML="";
-  }
-  else
-  {
-    gridSize=userInput;
-    userInput="";
-     container.innerHTML="";
-  }
+//Get Grid Size from slider input
+function getGridSize(value)
+{   resetGrid();
+  let number=parseInt(value); 
+  createGrid(number);
+}
+slider.onmousemove = (e) => updateSliderValue(e.target.value)
+slider.onchange = (e) => getGridSize(e.target.value)
 
-  isDrawing=false;
-  createGrid(gridSize);
-  hover();
+function updateSliderValue(value) {
+  sliderValue.innerHTML = `${value} x ${value}`;
 }
 
- 
+function resetGrid() {
+  container.innerHTML = '';
+}
 
 //Hovering 
 function hover()
@@ -88,7 +78,7 @@ function changeColor()
   }
   
 }
- 
+
 function trailEffect()
 { 
   if(!isDrawing)
