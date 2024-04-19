@@ -1,13 +1,14 @@
 const container=document.getElementById('container');
 let defaultGridSize=16;
 let currentMode= '';
+let currentColor='#000';
 const drawButton=document.getElementById('drawBtn');
 const eraserBtn=document.getElementById('eraserBtn');
 const clearBtn=document.getElementById('clearBtn');
 const rainbowBtn=document.getElementById('rainbowBtn');
 const slider=document.getElementById("slider");
 const sliderValue=document.getElementById("sliderValue");
-
+const colorPicker=document.getElementById('colorPicker');
 
 //Create Grid function
 function createGrid(number)
@@ -35,7 +36,12 @@ function setCurrentMode(newMode)
   currentMode=newMode;
 }
  
+function setCurrentColor(newColor)
+{
+  currentColor=newColor;
+}
 //Buttons
+colorPicker.oninput = (e) => setCurrentColor(e.target.value);
 drawBtn.onclick = () => setCurrentMode('draw');
 rainbowBtn.onclick = () => setCurrentMode('rainbow');
 eraserBtn.onclick = () =>setCurrentMode('eraser');
@@ -73,7 +79,7 @@ function changeColor()
 {
   if(currentMode==='draw')
   {
-    this.style.backgroundColor='black';
+    this.style.backgroundColor=currentColor;
   }
   else if(currentMode==='eraser')
   {
