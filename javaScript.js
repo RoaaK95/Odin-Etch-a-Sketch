@@ -1,9 +1,12 @@
 const container=document.getElementById('container');
 let defaultGridSize=16;
+let currentMode= 'draw';
 const drawButton=document.getElementById('drawBtn');
-const clearButton= document.getElementById('clearBtn');
+const eraserBtn=document.getElementById('eraserBtn');
 const slider=document.getElementById("slider");
 const sliderValue=document.getElementById("sliderValue");
+
+
 //Create Grid function
 function createGrid(number)
 {
@@ -23,14 +26,15 @@ function createGrid(number)
 }
 createGrid(defaultGridSize);
 
-let isDrawing=false;
-//Buttons
-drawButton.addEventListener("click",()=>{
-  isDrawing=true;
+function setCurrentMode(newMode)
+{
+  setActiveMode(newMode);
+  currentMode=newMode;
 }
-)
-clearButton.addEventListener("click",Clear);
-
+ 
+//Buttons
+drawBtn.onclick = () => setCurrentMode('draw');
+eraserBtn.onclick = ()=>setCurrentMode('eraser');
 //Get Grid Size from slider input
 function getGridSize(value)
 {   resetGrid();
@@ -51,16 +55,24 @@ function resetGrid() {
 //Hovering 
 function hover()
 {
-  let columns=document.getElementsByClassName("column");
+  let columns=document.getElementsByClassName('column');
   for(let i=0;i<=columns.length;i++)
-  {
-    columns[i].addEventListener("mouseover",changeColor);
-    columns[i].addEventListener("mouseout",trailEffect);
-    columns[i].addEventListener("mousedown",Draw);
+  { 
+    columns[i].addEventListener("mousedown",changeColor);
   }
 }
  
-
+function changeColor()
+{
+  if(currentMode==='draw')
+  {
+    this.style.backgroundColor='black';
+  }
+  else if(currentMode==='eraser')
+  {
+    this.style.backgroundColor='white';
+  }
+}
  
 //Random color
 function randomColor()
@@ -69,48 +81,58 @@ function randomColor()
   return "#" + randomColor;
 }
 
-function changeColor()
-{ 
-  if(!isDrawing)
-  {
-    this.classList.remove('animate');
-    this.style.backgroundColor=randomColor();
-  }
-  
-}
-
+ 
+/*
 function trailEffect()
 { 
-  if(!isDrawing)
-  {
+ 
     this.classList.add('animate');
    if(this.style.backgroundColor="#fff")
    {
     this.style.backgroundColor="#fff";
    }
   }
-   
-}
-
+  */
+ 
+ 
 //Drawing
 function Draw()
 {
-  if(isDrawing)
-  {
     this.style.backgroundColor=randomColor();
-  }
-  
 }
 
 //Clear
 function Clear()
-{isDrawing=false;
+
+{ 
   let columns=document.getElementsByClassName("column");
   for(let i=0;i<=columns.length;i++)
   {
     columns[i].style.backgroundColor="#fff";
   }
 
+}
+
+function setActiveMode(newMode) {
+  
+  if (currentMode === 'draw') 
+  {
+    drawBtn.classList.remove('active');
+  } 
+  else if(currentMode==='eraser')
+  {
+    eraserBtn.classList.remove('active');
+  }
+   
+   if (newMode === 'draw') 
+   {
+    drawBtn.classList.add('active')
+  } 
+  else if(newMode==='eraser')
+  {
+    eraserBtn.classList.add('active');
+  }
+  
 }
 
 hover();
