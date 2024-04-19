@@ -4,6 +4,7 @@ let currentMode= '';
 const drawButton=document.getElementById('drawBtn');
 const eraserBtn=document.getElementById('eraserBtn');
 const clearBtn=document.getElementById('clearBtn');
+const rainbowBtn=document.getElementById('rainbowBtn');
 const slider=document.getElementById("slider");
 const sliderValue=document.getElementById("sliderValue");
 
@@ -36,8 +37,9 @@ function setCurrentMode(newMode)
  
 //Buttons
 drawBtn.onclick = () => setCurrentMode('draw');
-eraserBtn.onclick = ()=>setCurrentMode('eraser');
-clearBtn.onclick =()=> Clear();
+rainbowBtn.onclick = () => setCurrentMode('rainbow');
+eraserBtn.onclick = () =>setCurrentMode('eraser');
+clearBtn.onclick = () => Clear();
 
 
 //Get Grid Size from slider input
@@ -76,6 +78,10 @@ function changeColor()
   else if(currentMode==='eraser')
   {
     this.style.backgroundColor='white';
+  }
+  else if(currentMode==='rainbow')
+  {
+    this.style.backgroundColor=randomColor();
   }
 }
  
@@ -119,16 +125,24 @@ function setActiveMode(newMode) {
   {
     drawBtn.classList.remove('active');
   } 
-  else if(currentMode==='eraser')
+  else if (currentMode === 'rainbow')
+  {
+    rainbowBtn.classList.remove('active');
+  }
+  else if (currentMode === 'eraser')
   {
     eraserBtn.classList.remove('active');
   }
    
-   if (newMode === 'draw') 
-   {
+  if (newMode === 'draw') 
+  {
     drawBtn.classList.add('active')
   } 
-  else if(newMode==='eraser')
+  else if (newMode === 'rainbow')
+  {
+    rainbowBtn.classList.add('active');
+  }
+  else if (newMode === 'eraser')
   {
     eraserBtn.classList.add('active');
   }
