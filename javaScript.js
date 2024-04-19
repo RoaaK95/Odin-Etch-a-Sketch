@@ -1,8 +1,9 @@
 const container=document.getElementById('container');
 let defaultGridSize=16;
-let currentMode= 'draw';
+let currentMode= '';
 const drawButton=document.getElementById('drawBtn');
 const eraserBtn=document.getElementById('eraserBtn');
+const clearBtn=document.getElementById('clearBtn');
 const slider=document.getElementById("slider");
 const sliderValue=document.getElementById("sliderValue");
 
@@ -23,6 +24,7 @@ function createGrid(number)
        }
      
     }
+    
 }
 createGrid(defaultGridSize);
 
@@ -35,6 +37,9 @@ function setCurrentMode(newMode)
 //Buttons
 drawBtn.onclick = () => setCurrentMode('draw');
 eraserBtn.onclick = ()=>setCurrentMode('eraser');
+clearBtn.onclick =()=> Clear();
+
+
 //Get Grid Size from slider input
 function getGridSize(value)
 {   resetGrid();
@@ -95,11 +100,6 @@ function trailEffect()
   */
  
  
-//Drawing
-function Draw()
-{
-    this.style.backgroundColor=randomColor();
-}
 
 //Clear
 function Clear()
