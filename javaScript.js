@@ -67,11 +67,6 @@ function resetGrid() {
   container.innerHTML = '';
 }
 
-//Hovering 
-function hover()
-{
- 
-}
  
 function changeColor()
 {
@@ -96,18 +91,6 @@ function randomColor()
   return "#" + randomColor;
 }
 
- 
-/*
-function trailEffect()
-{ 
- 
-    this.classList.add('animate');
-   if(this.style.backgroundColor="#fff")
-   {
-    this.style.backgroundColor="#fff";
-   }
-  }
-  */
  
  
 //Clear
