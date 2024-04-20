@@ -10,6 +10,7 @@ const slider=document.getElementById("slider");
 const sliderValue=document.getElementById("sliderValue");
 const colorPicker=document.getElementById('colorPicker');
 
+ 
 //Create Grid function
 function createGrid(number)
 {
@@ -22,6 +23,7 @@ function createGrid(number)
        {
         let column=document.createElement('div');
         column.classList.add('column');
+        column.addEventListener('mousedown',changeColor)
         row.appendChild(column);
        }
      
@@ -51,8 +53,8 @@ clearBtn.onclick = () => Clear();
 //Get Grid Size from slider input
 function getGridSize(value)
 {   resetGrid();
-  let number=parseInt(value); 
-  createGrid(number);
+   createGrid(value);
+   
 }
 slider.onmousemove = (e) => updateSliderValue(e.target.value)
 slider.onchange = (e) => getGridSize(e.target.value)
@@ -68,11 +70,7 @@ function resetGrid() {
 //Hovering 
 function hover()
 {
-  let columns=document.getElementsByClassName('column');
-  for(let i=0;i<=columns.length;i++)
-  { 
-    columns[i].addEventListener("mousedown",changeColor);
-  }
+ 
 }
  
 function changeColor()
@@ -112,7 +110,6 @@ function trailEffect()
   */
  
  
-
 //Clear
 function Clear()
 
@@ -154,5 +151,4 @@ function setActiveMode(newMode) {
   }
   
 }
-
-hover();
+ 
