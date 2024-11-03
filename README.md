@@ -3,10 +3,10 @@
 ## Summary  
 - This project is an "Etch-a-Sketch", a sketchpad that has all drawing and painting functionality inculding:  
     - Changing pen color from a color picker  
-    -- Changing the grid size  
-    -- Erasing  
-    -- Clear grid  
-    -- Random pen color 'Rainbow'  
+    - Changing the grid size  
+    - Erasing
+    - Clear grid  
+    - Random pen color 'Rainbow'  
     
 - This project was created for the Odin foundations path.  
 
