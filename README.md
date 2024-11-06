@@ -9,7 +9,8 @@
     - Random pen color 'Rainbow'  
     
 - This project was created for the Odin foundations path.  
-
+- [Live View](https://roaak95.github.io/Odin-Etch-a-Sketch/).
+  
 ## Technologies Used  
 - HTML  
 - CSS
